@@ -27,6 +27,7 @@
 		<input type="email" class="form-control" placeholder="Enter Mail Address" name="txtmail" required></br>
 		<input type="text" class="form-control" placeholder="Enter Mobile Number" name="txtmob" required></br>
 		<input type="password" class="form-control" placeholder="Enter Password" name="txtpass" required></br>
-		<input type="submit" class="btn btn-primary w-100" value="Register">
+		<input type="submit" class="btn btn-primary w-100" value="Register"><br><br>
+	    <a href ="logout.php" class ="btn btn-danger w-100">logout</a>
 	</form>
 </div>
