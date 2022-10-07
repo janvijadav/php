@@ -31,7 +31,7 @@
 			{
 		?>
 		<img class="img-circle" src="<?php echo "images/".$row['profile_pic']; ?>" alt="No Image" height="100" width="100" name="iconimg" id="iconimg"></br>
-		<img class="img-circle" src="<?php echo "images/".$row['profile_pic']; ?>" alt="No Image" height="100" width="100" name="iconimg" id="iconimg"></br>
+	
 		<?php
 			}
 			if($row['profile_pic']=="")
@@ -52,6 +52,7 @@
 <?php
 	if(isset($_POST['txtnm']))
 	{
+
 		$nm = $_POST['txtnm'];
 		$mob = $_POST['txtmob'];
 		$pass = $_POST['txtpass'];
