@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap.min.css"/>
 <?php
 	$con = mysqli_connect("localhost","root","","janvi");
 	if(!$con)
@@ -32,5 +33,7 @@
 	<input type="email" class="form-control" placeholder="Enter Mail Address" name="txtmail" required></br>
 	<input type="password" class="form-control" placeholder="Enter Password" name="txtpass" required></br>
 	<input type="submit" class="btn btn-primary w-100" value="Login">
+   
+	
 </form>
 </div>
