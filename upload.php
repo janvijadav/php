@@ -1,7 +1,8 @@
-<head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
+
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	</head>
 	<form action="upload.php" method="POST" enctype="multipart/form-data">
 		<input type ="text" name ="txtroll" placeholder ="enterrollno."></br>
 		<input type ="text" name ="txtnm" placeholder ="enter name"></br>
@@ -12,7 +13,7 @@
 
 	
 	<?php
-	     $con=new mysqli("localhost","root","","janvi");
+	     $con=mysqli_connect("localhost","root","","janvi");
 		 if(isset($_POST['txtroll']))
 	     {
 			
@@ -20,13 +21,13 @@
 		   {
 			  $rnm=$_POST['txtroll'];
 			 $nm=$_POST['txtnm'];
-			 $target_div="janvi/";
+			 $target_dir="janvi/";
 			 $name=rand(150,148000);
 			 $extension = pathinfo($_FILES["janvi"]["name"],PATHINFO_EXTENSION);
-			 $fnm=$name.$extension;
-			 move_uploaded_file($_FILES["janvi"]["tmp_name"],$target_div.$name.".".$extension);
+			$fnm=$name.".".$extension;
+			 move_uploaded_file($_FILES["janvi"]["tmp_name"],$target_dir.$name.".".$extension);
 			 $sql="INSERT INTO `img`(`rollno`, `name`, `file`) VALUES ('$rnm','$nm','$fnm')";
-			 mysqli_query($con,$sql);
+			 $res=mysqli_query($con,$sql);
 		}
 	}
 	?>
@@ -41,19 +42,15 @@
 			}
 		}
 	</script>
-	
-	<?php
-		if(isset($_POST['']))
-	?>
-	
-	<table cellpadding="0" cellspacing="0" border="1px solid" width="100%">
-	<tr>
-        <th colspan="2">sr.</th>
-		<th colspan="2">rollno.</th>
-		<th colspan="2">name.</th>
-		<th colspan="2">image.</th>
-		<th colspan="2">action.</th>
-	</tr>
+
+	<table class="table table-bordered text-center">
+					<tr>
+						<th>id
+						<th>Roll No
+						<th>Name
+						<th>profile_pic
+						<th>action
+
 	<?php
       
          $sql="SELECT * FROM `img` ";
@@ -62,7 +59,7 @@
 	     while($row = mysqli_fetch_assoc($res))
 		 {
      ?>		    		  
-	               <tr>     
+	                <tr>     
                     <td><?php echo $i=1;?>
 					<td><?php echo $row['rollno'];?>
 					<td><?php echo $row['name'];?>
@@ -76,5 +73,6 @@
   
 	</table>
 				  
+	  
 				  
  
